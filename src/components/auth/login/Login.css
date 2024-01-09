@@ -38,6 +38,7 @@
  }
  .form button{
     padding: 8px 25px;
+     margin-top: 10px;
     border: none;
     cursor: pointer;
     background-color: brown;
@@ -46,7 +47,6 @@
     
  }
  .form button:hover{
-    margin-top: 10px;
   background-color: rgb(164, 77, 77);
  }
 
