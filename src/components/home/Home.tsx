@@ -37,6 +37,7 @@ const Home = () => {
   const logout = ()=>{
     logoutUser()
     navigate('/login')
+    window.location.reload()
   }
 
   return (
