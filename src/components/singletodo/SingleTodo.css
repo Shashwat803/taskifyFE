@@ -1,0 +1,39 @@
+.todo_single{
+    display: flex;
+    width: 29.5%;
+    align-items: center;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 15px;
+    background-image: url("https://img.freepik.com/free-photo/abstract-solid-shining-yellow-gradient-studio-wall-room-background_1258-54539.jpg?w=996&t=st=1704380767~exp=1704381367~hmac=83f21939ca0b1d1ee2d5261a2001c0a9899ad7331f82f555b4bb5bf20de2a3b6");
+}
+.todo_single--text{
+    flex: 1;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+}
+
+.todo_single--text:focus{
+    outline: none;
+}
+.icon{
+    margin-left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+@media (max-width:1200px) {
+    .todo_single{
+        width: 40%;
+    }
+}
+
+@media (max-width:700px) {
+   .todos{
+    width: 95%;
+   }
+   .todo_single{
+    width: 100%;
+   }
+}

@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Signup from "./components/auth/signup/Signup";
+import Home from "./components/home/Home";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Login from "./components/auth/login/Login";
+import { routeGuard } from "./components/service/authservice/Route-Guard";
 
-function App() {
+
+const App: React.FC = () => {
+  const isAuthenticated = routeGuard()
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/home" element={isAuthenticated? <Home/>:<Navigate to='/login' />}></Route>      
+        </Routes>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
