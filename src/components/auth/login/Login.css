@@ -53,6 +53,7 @@
  .message{
     color: white;
     font-weight: bold;
+    cursor: pointer;
  }
 
  .message:hover{
