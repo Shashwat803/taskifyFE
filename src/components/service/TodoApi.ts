@@ -1,6 +1,6 @@
 import axios from "axios"
 import { authHeader } from "./authservice/Auth-header"
-const Baseurl: string = "http://localhost:8000/api/todos"
+const Baseurl: string = "https://taskify-be.vercel.app/api"
 
 const api = axios.create({
     baseURL: Baseurl,
