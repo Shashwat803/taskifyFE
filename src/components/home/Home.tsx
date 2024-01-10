@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Todo } from "../model/TodoModel";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { createTodo, getAllTodos } from "../service/TodoApi";
 import InputField from "../input/InputField";
 import TodoList from "../todolist/TodoList";
@@ -17,8 +19,13 @@ const Home = () => {
     e.preventDefault();
     if (todo) {
       const response = await createTodo({ todo, isDone: false });
-      setTodos([...todos, response]);
-      setTodo("");
+      if(response.status === 201){
+        setTodos([...todos, response.data]);
+        setTodo("");
+      }else{
+       toast.error("Todo already exist")
+      }
+      
     }
   };
 
@@ -47,6 +54,7 @@ const Home = () => {
         Log Out
       </button>
     </div>
+    <ToastContainer/>
     <div className="App">
       <span className="heading">{user &&user.toUpperCase()}'s TASKIFY</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />

@@ -18,7 +18,7 @@ export const getAllTodos = async () => {
 export const createTodo = async (todo: any) => {
     try {
         const response = await api.post("/todos", todo, { headers: authHeader() })
-        return response.data
+        return response
     } catch (error) {
         throw new Error("Error while creating todo")
     }
