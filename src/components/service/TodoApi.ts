@@ -1,6 +1,6 @@
 import axios from "axios"
 import { authHeader } from "./authservice/Auth-header"
-const Baseurl: string = "https://taskify-be.onrender.com/api"
+const Baseurl: string = "https://taskify-be.onrender.com/api/"
 
 const api = axios.create({
     baseURL: Baseurl,
