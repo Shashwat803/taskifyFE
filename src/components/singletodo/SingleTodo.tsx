@@ -3,6 +3,7 @@ import { Todo } from "../model/TodoModel";
 import { MdEdit, MdDelete, MdDone } from "react-icons/md";
 import "./SingleTodo.css";
 import { deleteTodo, markDone, updateTodo } from "../service/TodoApi";
+import { toast } from "react-toastify";
 
 
 interface Props {
@@ -22,8 +23,12 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
       setTodos(todos.map((todo)=>todo._id===id?{...todo,isDone:!todo.isDone}:todo))
     }
     const handleDelete = async(id:number)=>{
-       await deleteTodo(id)
-       setTodos(todos.filter((todo)=>todo._id!==id))
+      const response = await deleteTodo(id)
+      if(response.status === 200){
+        setTodos(todos.filter((todo)=>todo._id!==id))
+      } else{
+        toast.error("Already deleted")
+      }
     }
 
     const handleEdit = async(e:React.FormEvent, id:number)=>{

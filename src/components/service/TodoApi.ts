@@ -38,7 +38,7 @@ export const updateTodo = async (id: number, todo: any) => {
 export const deleteTodo = async (id: number) => {
     try {
         const response = await api.delete(`/todos/${id}`, {headers:authHeader()})
-        return response.data
+        return response
 
     } catch (error) {
         throw new Error("Error while deleting")
